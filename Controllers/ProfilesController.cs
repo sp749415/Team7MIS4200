@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Team7MIS4200.DAL;
 using Team7MIS4200.Models;
 
 namespace Team7MIS4200.Controllers
 {
     public class ProfilesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Team7MIS4200Context db = new Team7MIS4200Context();
 
         // GET: Profiles
         public ActionResult Index()
@@ -21,7 +22,7 @@ namespace Team7MIS4200.Controllers
         }
 
         // GET: Profiles/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -46,10 +47,11 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,award,recognizor,recognized,recognizationDate")] Profile profile)
+        public ActionResult Create([Bind(Include = "profileID,award,recognizor,recognized,recognizationDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
+                profile.profileID = Guid.NewGuid();
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -59,7 +61,7 @@ namespace Team7MIS4200.Controllers
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -78,7 +80,7 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,award,recognizor,recognized,recognizationDate")] Profile profile)
+        public ActionResult Edit([Bind(Include = "profileID,award,recognizor,recognized,recognizationDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +92,7 @@ namespace Team7MIS4200.Controllers
         }
 
         // GET: Profiles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -107,7 +109,7 @@ namespace Team7MIS4200.Controllers
         // POST: Profiles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Profile profile = db.Profiles.Find(id);
             db.Profiles.Remove(profile);

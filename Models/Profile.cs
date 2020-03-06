@@ -8,13 +8,13 @@ namespace Team7MIS4200.Models
 {
     public class Profile
     {
-        public int ID { get; set; }
+        public Guid profileID { get; set; }
         [Display(Name = "Core value recognized")]
         public CoreValue award { get; set; }
         [Display(Name = "ID of Person giving the recognition")]
-        public GUID recognizor { get; set; }
+        public Guid recognizor { get; set; }
         [Display(Name = "ID of Person receiving the recognition")]
-        public GUID recognized { get; set; }
+        public Guid recognized { get; set; }
         [Display(Name = "Date recognition given")]
         public DateTime recognizationDate { get; set; }
         public enum CoreValue
