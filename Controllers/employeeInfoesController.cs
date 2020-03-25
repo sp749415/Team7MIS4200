@@ -11,17 +11,17 @@ using Team7MIS4200.Models;
 
 namespace Team7MIS4200.Controllers
 {
-    public class employeeInfosController : Controller
+    public class employeeInfoesController : Controller
     {
         private Team7MIS4200Context db = new Team7MIS4200Context();
 
-        // GET: employeeInfos
+        // GET: employeeInfoes
         public ActionResult Index()
         {
             return View(db.EmployeeInfos.ToList());
         }
 
-        // GET: employeeInfos/Details/5
+        // GET: employeeInfoes/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace Team7MIS4200.Controllers
             return View(employeeInfo);
         }
 
-        // GET: employeeInfos/Create
+        // GET: employeeInfoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: employeeInfos/Create
+        // POST: employeeInfoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -60,7 +60,7 @@ namespace Team7MIS4200.Controllers
             return View(employeeInfo);
         }
 
-        // GET: employeeInfos/Edit/5
+        // GET: employeeInfoes/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -75,7 +75,7 @@ namespace Team7MIS4200.Controllers
             return View(employeeInfo);
         }
 
-        // POST: employeeInfos/Edit/5
+        // POST: employeeInfoes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -91,7 +91,7 @@ namespace Team7MIS4200.Controllers
             return View(employeeInfo);
         }
 
-        // GET: employeeInfos/Delete/5
+        // GET: employeeInfoes/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -106,7 +106,7 @@ namespace Team7MIS4200.Controllers
             return View(employeeInfo);
         }
 
-        // POST: employeeInfos/Delete/5
+        // POST: employeeInfoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)

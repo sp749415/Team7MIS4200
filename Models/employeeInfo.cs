@@ -30,8 +30,6 @@ namespace Team7MIS4200.Models
 
         [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpressionAttribute(@"\d{ 3}-)\d{3}-\d{4}$",
-            ErrorMessage = "Phone Numbers must be in the format xxx-xxx-xxxx")]
         [Required(ErrorMessage = "Phone number is required")]
         public string phone { get; set; }
 
