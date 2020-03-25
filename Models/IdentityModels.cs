@@ -30,6 +30,6 @@ namespace Team7MIS4200.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Team7MIS4200.Models.Recognition> Profiles { get; set; }
+        public System.Data.Entity.DbSet<Team7MIS4200.Models.employeeInfo> EmployeeInfos { get; set; }
     }
 }
