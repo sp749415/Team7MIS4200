@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Team7MIS4200.DAL;
 using Team7MIS4200.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace Team7MIS4200.Controllers
 {
@@ -47,17 +49,32 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeeID,firstName,lastName,email,phone")] employeeInfo employeeInfo)
+        public ActionResult Create([Bind(Include = "employeeID,BusinessUnit,firstName,lastName,email,phone,hireDate")] employeeInfo employeeInfo)
         {
             if (ModelState.IsValid)
             {
-                employeeInfo.employeeID = Guid.NewGuid();
+                // employeeInfo.ID = Guid.NewGuid(); // original new GUID
+                Guid memberID; // create a new variable to hold the GUID
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                employeeInfo.employeeID = memberID;
+                //employeeInfo.employeeID = Guid.NewGuid();
                 db.EmployeeInfos.Add(employeeInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+                    
+                }
 
-            return View(employeeInfo);
+                return View("DuplicateUser");
+
+
+            }    
+              
+          
         }
 
         // GET: employeeInfoes/Edit/5
@@ -80,7 +97,7 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeID,firstName,lastName,email,phone")] employeeInfo employeeInfo)
+        public ActionResult Edit([Bind(Include = "employeeID,BusinessUnit,firstName,lastName,email,phone,hireDate")] employeeInfo employeeInfo)
         {
             if (ModelState.IsValid)
             {

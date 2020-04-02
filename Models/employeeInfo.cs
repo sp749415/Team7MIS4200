@@ -16,6 +16,7 @@ namespace Team7MIS4200.Models
         {
             get { return lastName + ", " + firstName; }
         }
+        public businessUnit BusinessUnit { get; set; }
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "First name is required")]
         public string firstName { get; set; }
@@ -33,6 +34,9 @@ namespace Team7MIS4200.Models
         [Required(ErrorMessage = "Phone number is required")]
         public string phone { get; set; }
 
+        [Display(Name = "Hire Date")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
+        public DateTime hireDate { get; set; }
         public enum businessUnit
         {
             Boston = 1,
@@ -42,7 +46,7 @@ namespace Team7MIS4200.Models
             Cleveland = 5,
             Columbus = 6,
             India = 7,
-            Indianapolis = 8,
+            Indianapolis = 8
 
         }
     }
