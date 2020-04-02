@@ -66,15 +66,16 @@ namespace Team7MIS4200.Controllers
                 }
                 catch (Exception)
                 {
-                    
+
                 }
 
                 return View("DuplicateUser");
+            }           
+            else
+            {
+                return View();
+            }
 
-
-            }    
-              
-          
         }
 
         // GET: employeeInfoes/Edit/5
