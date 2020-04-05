@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\employeeInfoes1Controller.cs" />
     <Compile Include="Controllers\employeeInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -175,7 +176,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Migrations\MISContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\employeeInfo.cs" />
@@ -247,6 +247,11 @@
     <Content Include="Views\employeeInfoes\Edit.cshtml" />
     <Content Include="Views\employeeInfoes\Index.cshtml" />
     <Content Include="Views\employeeInfoes\DuplicateUser.cshtml" />
+    <Content Include="Views\employeeInfoes1\Create.cshtml" />
+    <Content Include="Views\employeeInfoes1\Delete.cshtml" />
+    <Content Include="Views\employeeInfoes1\Details.cshtml" />
+    <Content Include="Views\employeeInfoes1\Edit.cshtml" />
+    <Content Include="Views\employeeInfoes1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
