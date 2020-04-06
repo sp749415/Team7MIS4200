@@ -49,5 +49,9 @@ namespace Team7MIS4200.Models
             Indianapolis = 8
 
         }
+
+        [Display(Name = "Bio")]
+        [Required(ErrorMessage = "Add a description about yourself")]
+        public string bio { get; set; }
     }
 }
