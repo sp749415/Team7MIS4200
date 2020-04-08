@@ -19,7 +19,16 @@ namespace Team7MIS4200.Controllers
         // GET: employeeInfoes
         public ActionResult Index()
         {
-            return View(db.EmployeeInfos.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.EmployeeInfos.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated"); 
+            }
+
+            
         }
 
         // GET: employeeInfoes/Details/5
@@ -87,7 +96,18 @@ namespace Team7MIS4200.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeInfo);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (employeeInfo.employeeID == memberID)
+            {
+                return View(employeeInfo);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
+
+            
         }
 
         // POST: employeeInfoes/Edit/5

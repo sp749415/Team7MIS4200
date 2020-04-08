@@ -245,6 +245,8 @@
     <Content Include="Views\employeeInfoes\Details.cshtml" />
     <Content Include="Views\employeeInfoes\Edit.cshtml" />
     <Content Include="Views\employeeInfoes\Index.cshtml" />
+    <Content Include="Views\employeeInfoes\NotAuthenticated.cshtml" />
+    <Content Include="Views\employeeInfoes\DuplicateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
