@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -51,10 +52,24 @@ namespace Team7MIS4200.Controllers
         {
             if (ModelState.IsValid)
             {
-                employeeInfo.employeeID = Guid.NewGuid();
+                // employeeInfo.employeeID = Guid.NewGuid();
+                Guid memberID; // create a new variable to hold the guid
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                employeeInfo.employeeID = memberID;
                 db.EmployeeInfos.Add(employeeInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+
+                    //throw;
+                }
+
+                return View("DuplicateUser");
+                
             }
 
             return View(employeeInfo);
