@@ -23,6 +23,12 @@ namespace Team7MIS4200.Models
         {
             corevalue = 1,
         }
+
+        public DateTime whenCreated { get; set; }
+        public Recognition()
+        {
+            whenCreated = DateTime.Now;
+        }
         
     }
 }
