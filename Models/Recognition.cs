@@ -15,7 +15,7 @@ namespace Team7MIS4200.Models
         [Required]
         public CoreValue award { get; set; }
 
-        [StringLength(500)]
+       
         [Required]
         public string recognition  { get; set; }
 

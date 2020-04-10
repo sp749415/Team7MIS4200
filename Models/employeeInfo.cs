@@ -53,5 +53,7 @@ namespace Team7MIS4200.Models
         [Display(Name = "Bio")]
         [Required(ErrorMessage = "Add a description about yourself")]
         public string bio { get; set; }
+
+
     }
 }

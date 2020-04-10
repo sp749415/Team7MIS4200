@@ -29,5 +29,6 @@ namespace Team7MIS4200.DAL
 
         }
 
+        public System.Data.Entity.DbSet<Team7MIS4200.Models.Recognition> Recognitions { get; set; }
     }
     }
