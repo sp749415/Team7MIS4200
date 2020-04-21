@@ -17,7 +17,7 @@ namespace Team7MIS4200.Models
 
        
         [Required]
-        public string recognition  { get; set; }
+        public string message  { get; set; }
 
         public enum CoreValue
         {
