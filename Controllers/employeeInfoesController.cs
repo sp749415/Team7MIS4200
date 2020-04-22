@@ -17,10 +17,20 @@ namespace Team7MIS4200.Controllers
         private Team7MIS4200Context db = new Team7MIS4200Context();
 
         // GET: employeeInfoes
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             if (User.Identity.IsAuthenticated)
             {
+               var testusers = from u in db.EmployeeInfos select u;
+               if (!String.IsNullOrEmpty(searchString))
+                   {
+                    testusers = testusers.Where(u =>
+                   u.lastName.Contains(searchString)
+                   || u.firstName.Contains(searchString));
+                    // if here, users were found so view them
+                    return View(testusers.ToList());                  
+                    }            
+
                 return View(db.EmployeeInfos.ToList());
             }
             else

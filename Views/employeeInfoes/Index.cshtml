@@ -6,64 +6,83 @@
 
 <h2>Create Profile</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BusinessUnit)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.firstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.hireDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bio)
-        </th>
-        <th></th>
-    </tr>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9">
+            @using (Html.BeginForm("Index", "employeeInfoes", FormMethod.Get))
+            {
+                <p>
+                    Search for users by first or last name:
+                    @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Create New", "Create")
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BusinessUnit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hireDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bio)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.employeeID })
-        </td>
-    </tr>
-}
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BusinessUnit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.firstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hireDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bio)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BusinessUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.firstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hireDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bio)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.employeeID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.employeeID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.employeeID })
+                    </td>
+                </tr>
+            }
+
+        </table>
