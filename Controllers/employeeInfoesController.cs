@@ -148,7 +148,16 @@ namespace Team7MIS4200.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employeeInfo);
+            Guid memberID;
+            Guid.TryParse(User.Identity.GetUserId(), out memberID);
+            if (employeeInfo.employeeID == memberID)
+            {
+                return View(employeeInfo);
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // POST: employeeInfoes/Delete/5

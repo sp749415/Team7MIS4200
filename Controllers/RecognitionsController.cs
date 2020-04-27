@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -16,9 +17,17 @@ namespace Team7MIS4200.Controllers
         private Team7MIS4200Context db = new Team7MIS4200Context();
 
         // GET: Recognitions
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Recognitions.ToList());
+            if (User.Identity.IsAuthenticated)
+            {
+              
+                return View(db.Recognitions.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // GET: Recognitions/Details/5
