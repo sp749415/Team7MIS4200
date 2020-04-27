@@ -21,7 +21,14 @@ namespace Team7MIS4200.Models
 
         public enum CoreValue
         {
-            corevalue = 1,
+            Commit_to_delivery_exellence = 1,
+            Embrace_integrity_and_openness = 2,
+            Practice_responsible_stewardshsip = 3,
+            Invest_in_exceptional_culture = 4,
+            Ignite_passion_for_the_greater_good = 5,
+            Strive_to_innovate = 6,
+            Live_a_balanced_life = 7
+
         }
 
         public DateTime whenCreated { get; set; }
