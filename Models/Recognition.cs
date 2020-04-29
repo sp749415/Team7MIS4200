@@ -15,7 +15,7 @@ namespace Team7MIS4200.Models
         [Required]
         public CoreValue award { get; set; }
 
-       
+        [Display(Name = "Message")]
         [Required]
         public string message  { get; set; }
 
@@ -23,7 +23,7 @@ namespace Team7MIS4200.Models
         {
             Commit_to_delivery_exellence = 1,
             Embrace_integrity_and_openness = 2,
-            Practice_responsible_stewardshsip = 3,
+            Practice_responsible_stewardship = 3,
             Invest_in_exceptional_culture = 4,
             Ignite_passion_for_the_greater_good = 5,
             Strive_to_innovate = 6,
@@ -31,13 +31,17 @@ namespace Team7MIS4200.Models
 
         }
 
+        [Display(Name = "When Created")]
         public DateTime whenCreated { get; set; }
         public Recognition()
         {
             whenCreated = DateTime.Now;
         }
 
-        
-        
+        // the next two properties link the employeeInfo to the Recognition
+        [Display(Name = "Recognized Employee")]
+        public Guid employeeID { get; set; }
+        public virtual employeeInfo EmployeeInfo { get; set; }
+
     }
 }

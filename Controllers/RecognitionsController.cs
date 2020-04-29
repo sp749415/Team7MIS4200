@@ -46,6 +46,7 @@ namespace Team7MIS4200.Controllers
         // GET: Recognitions/Create
         public ActionResult Create()
         {
+            ViewBag.employeeID = new SelectList(db.EmployeeInfos, "employeeID", "fullName");
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "recId,award,message,whenCreated")] Recognition recognition)
+        public ActionResult Create([Bind(Include = "recId,award,message,whenCreated,employeeID")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +64,7 @@ namespace Team7MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.employeeID = new SelectList(db.EmployeeInfos, "employeeID", "fullName");
             return View(recognition);
         }
 
@@ -86,7 +88,7 @@ namespace Team7MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "recId,award,message,whenCreated")] Recognition recognition)
+        public ActionResult Edit([Bind(Include = "recId,award,message,whenCreated,employeeID")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {

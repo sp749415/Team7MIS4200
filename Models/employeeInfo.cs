@@ -5,17 +5,15 @@ using System.Linq;
 using System.Web;
 
 namespace Team7MIS4200.Models
-{
+{ 
     public class employeeInfo
-    {
+    {      
         [Key]
         public Guid employeeID { get; set; }
 
-        [Display(Name = "Student Full Name")]
-        public string fullName
-        {
-            get { return lastName + ", " + firstName; }
-        }
+        [Display(Name = "Employee Full Name")]
+        public string fullName { get { return lastName + ", " + firstName; } }
+         
         public businessUnit BusinessUnit { get; set; }
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "First name is required")]
@@ -54,6 +52,7 @@ namespace Team7MIS4200.Models
         [Required(ErrorMessage = "Add a description about yourself")]
         public string bio { get; set; }
 
+        public ICollection<Recognition> Recognition { get; set; }
 
     }
 }
