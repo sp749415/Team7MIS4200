@@ -114,7 +114,7 @@ namespace Team7MIS4200.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("EditDeleteNo");
             }
 
             
@@ -156,7 +156,7 @@ namespace Team7MIS4200.Controllers
             }
             else
             {
-                return View("NotAuthenticated");
+                return View("EditDeleteNo");
             }
         }
 

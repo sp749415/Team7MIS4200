@@ -35,6 +35,7 @@ namespace Team7MIS4200.Models
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime hireDate { get; set; }
+
         public enum businessUnit
         {
             Boston = 1,
